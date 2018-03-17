@@ -347,7 +347,7 @@ class Model(Network):
             # Add regularization penalties
             # and other layer-specific losses.
             for loss_tensor in self.losses:
-                total_loss += loss_tensor
+                total_loss += K.cast_like(loss_tensor, total_loss)
 
         # List of same size as output_names.
         # contains tuples (metrics for output, names of metrics).
